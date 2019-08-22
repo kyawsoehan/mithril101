@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mithril/1.1.6/mithril.min.js"></script>
+    <script>
+        var currencyExchange = {
+            currencies: {},
+            getCurrencies: function () {
+                m.request({
+                    method: "GET",
+                    url: "http://free.currencyconverterapi.com/api/v5/convert?q=USD_MMK&compact=y",
+                    //withCredentials: true
+                    //url : "https://jsonplaceholder.typicode.com/todos/1"
+
+                })
+                    .then(function (result) {
+                        console.log(result);
+                        //console.log("it's " + result);
+                        // currencyExchange.currencies = result;
+                        // console.log(currencyExhange.currencies);
+                    })
+                    .catch(function (error) {
+                        console.log("some error")
+                        console.log(error);
+                    });
+            },
+            print: function () {
+                console.log("hello mr.lin");
+            }
+        };
+        currencyExchange.getCurrencies();
+
+
+    </script>
+
+</body>
+
+</html>
